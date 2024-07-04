@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thalassemia Awareness</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <style>
+        body{
+            /* background-color: #f5f5f5; */
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .heading {
+            background-image: url("https://img.freepik.com/free-photo/human-blood-globulins_1268-28780.jpg?t=st=1720068352~exp=1720071952~hmac=7b835196d6420db9c00ac375d9a004c07db013061872d122893488cc5c62d82a&w=1060");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .heading h1 {
+            color: white;
+            font-size: 120px;
+            font-weight: 900;
+            font-family: 'Times New Roman', 'Times, serif';
+            text-align: center;
+            text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4),
+                0px 8px 13px rgba(0, 0, 0, 0.1),
+                0px 18px 23px rgba(0, 0, 0, 0.1);
+        }
+
+        .content {
+            padding: 5%;
+        }
+
+        .content p {
+            font-size: 25px;
+            text-align: justify;
+        }
+
+        .content img {
+            width: 100%;
+            height: auto;
+        }
+
+        .sec p {
+            text-align: justify;
+            font-size: 22px;
+        }
+
+        .causes ul {
+            font-size: 22px;
+            font-weight: 400;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .causes ul li {
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .symptoms {
+            margin-top: 15px;
+        }
+
+        .symptoms h2 {
+            font-weight: bold;
+        }
+
+        .symptoms ul {
+            font-size: 22px;
+            margin-top: 10px;
+        }
+
+        .symptoms ul li {
+            margin-bottom: 10px;
+        }
+
+        .diagnosis {
+            margin-top: 30px;
+            padding: 5%;
+        }
+
+        .diagnosis h1 {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .treatment-section {
+            margin-top: 15px;
+        }
+
+        .treatment-section h1 {
+            font-weight: bold;
+        }
+
+        .treatment-section ul {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .treatment-section ul li {
+            font-size: 22px;
+            font-weight: 400;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+
+        .doctor-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .doctor-img {
+            width: 100%;
+            max-width: 150px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .doctor-name {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .doctor-specialization {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .doctor-contact-info {
+            margin-bottom: 5px;
+        }
+
+        .doctor-hospital {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .doctor-location {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            margin-top: 10px;
+        }
+
+        .footer {
+            position:relative;
+            /* left: 0;
+            bottom: 0; */
+            width: 100%;
+            background-color: rgb(101, 101, 101);
+            color: white;
+            text-align: center;
+            font-weight: 700;
+            margin-top: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .heading h1 {
+                font-size: 60px;
+            }
+
+            .content p {
+                font-size: 18px;
+            }
+
+            .content ul {
+                font-size: 20px;
+            }
+
+            .image-collage__feature-image,
+            .image-collage__subfeature-image,
+            .image-collage__sub-image {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">Thalassemia Awareness</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/predict">Prediction Tool</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="heading">
+        <h1>Thalassemia</h1>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Thalassemia</strong> <em>(thal-uh-SEE-me-uh)</em> is an inherited blood disorder. It affects
+                    your body’s ability to produce
+                    normal hemoglobin. Hemoglobin is a protein in red blood cells. It allows your red blood cells to
+                    transport
+                    oxygen throughout your body, nourishing your body’s other cells.
+                    <br>
+                    If you have thalassemia, your body produces fewer healthy hemoglobin proteins, and your bone marrow
+                    produces
+                    fewer healthy red blood cells. The condition of having fewer red blood cells is called anemia. As
+                    red blood
+                    cells serve the vital role of delivering oxygen to tissues in your body, not having enough healthy
+                    red blood
+                    cells can deprive your body’s cells of the oxygen they need to make energy and thrive.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img src="https://cdn.pixabay.com/photo/2024/05/27/12/20/red-blood-cell-8791098_960_720.jpg"
+                    alt="Red Blood Cells" style="height: 500px;">
+            </div>
+        </div>
+    </section>
+
+    <section class="content sec">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="container text-center">
+                    <div class="row row-cols-2">
+                        <div class="col"><img
+                                src="https://img.freepik.com/free-vector/tired-employee-concept-illustration_114360-16796.jpg?uid=R91567032&ga=GA1.1.47042758.1720037891&semt=sph"
+                                alt="Fatigue"></div>
+                        <div class="col"><img
+                                src="https://img.freepik.com/premium-vector/cough-icon-simple-element-from-allergy-collection-creative-cough-icon-web-design-templates-infographics-more_676904-1252.jpg?size=626&ext=jpg&uid=R91567032&ga=GA1.1.47042758.1720037891&semt=ais_user"
+                                alt="Trouble Breathing"></div>
+                        <div class="col"><img
+                                src="https://img.freepik.com/free-vector/person-with-cold_23-2148484327.jpg?uid=R91567032&ga=GA1.1.47042758.1720037891&semt=ais_user"
+                                alt="Feeling Cold"></div>
+                        <div class="col"><img
+                                src="https://img.freepik.com/free-vector/dizzy-face-concept-illustration_114360-8779.jpg?uid=R91567032&ga=GA1.1.47042758.1720037891&semt=sph"
+                                alt="Dizziness"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h1 style="text-align: center; font-weight: bold; font-size: 50px;">How does thalassemia affect body?</h1>
+                <p>Thalassemia can cause mild or severe anemia and other complications over time (such as iron
+                    overload). Symptoms of anemia include:</p>
+                <ul>
+                    <li>Fatigue</li>
+                    <li>Weakness</li>
+                    <li>Facial bone deformities</li>
+                    <li>Slow growth</li>
+                    <li>Abdominal swelling</li>
+                    <li>Trouble breathing</li>
+                    <li>Feeling cold</li>
+                    <li>Dizziness</li>
+                    <li>Pale skin</li>
+                </ul>
+                <p>Some babies show signs and symptoms of thalassemia at birth; others develop them during the first two
+                    years of life. Some people who have only one affected hemoglobin gene don't have thalassemia
+                    symptoms.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="causes">
+                    <h1 style="text-align: center; font-weight: bold; font-size: 50px;">Causes of Thalassemia</h1>
+                    <p>Thalassemia is caused by mutations in the DNA of cells that make hemoglobin — the substance in
+                        red blood cells that carries oxygen throughout your body. The mutations associated with
+                        thalassemia are passed from parents to children.</p>
+                    <p>In alpha-thalassemia, the severity of thalassemia depends on the number of gene mutations
+                        inherited from parents, affecting the production of alpha hemoglobin chains.</p>
+                    <p>In beta-thalassemia, mutations affect the beta hemoglobin chain, with the severity varying based
+                        on which part of the hemoglobin molecule is affected.</p>
+                    <p>For example:</p>
+                    <ul>
+                        <li><strong>Alpha-thalassemia:</strong>
+                            <ul style="font-weight: 300;">
+                                <li>One mutated gene: No symptoms, but a carrier.</li>
+                                <li>Two mutated genes: Mild symptoms (alpha-thalassemia trait).</li>
+                                <li>Three mutated genes: Moderate to severe symptoms.</li>
+                                <li>Four mutated genes: Rare and severe, often resulting in stillbirth or severe
+                                    complications.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Beta-thalassemia:</strong>
+                            <ul style="font-weight: 300;">
+                                <li>One mutated gene: Mild symptoms (thalassemia minor).</li>
+                                <li>Two mutated genes: Moderate to severe symptoms (thalassemia major).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="image-collage__container">
+                    <div class="image-collage__feature-image">
+                        <img src="https://static.toiimg.com/photo/104061950.cms" alt="Blood composition">
+                    </div>
+                    <div class="image-collage__subfeature-image">
+                        <img src="https://d2jx2rerrg6sh3.cloudfront.net/image-handler/picture/2021/9/shutterstock_1018509598.jpg"
+                            alt="DNA Structure" style="border-radius: 100%; width: 500px; margin-left: 20%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col">
+                <div class="symptoms">
+                    <h1 style="text-align: center; font-weight: bold; font-size: 50px;">Symptoms of Thalassemia</h1>
+                    <p>Your experience will depend on the type of thalassemia you have and its severity:</p>
+                    <ul>
+                        <li><strong>Asymptomatic (no symptoms):</strong>
+                            <ul style="font-weight: 300;">
+                                <li>You likely won’t have symptoms if you’re missing one alpha gene. If you’re missing
+                                    two alpha genes or one beta gene, you may be asymptomatic. Or, you may have mild
+                                    anemia symptoms, like fatigue.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Mild to moderate symptoms:</strong>
+                            <ul style="font-weight: 300;">
+                                <li>Beta thalassemia intermedia may cause mild anemia symptoms, or it may cause the
+                                    following symptoms associated with more moderate disease:</li>
+                                <li>Growth problems.</li>
+                                <li>Delayed puberty.</li>
+                                <li>Bone abnormalities, such as osteoporosis.</li>
+                                <li>An enlarged spleen (the organ in your abdomen that plays a part in fighting
+                                    infection).</li>
+                                <li>You may eventually need surgery to correct skeletal problems. Your healthcare
+                                    provider may need to remove your spleen if it grows too large.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Severe symptoms:</strong>
+                            <ul style="font-weight: 300;">
+                                <li>Missing three alpha genes (Hemoglobin H disease) often causes anemia symptoms at
+                                    birth and leads to severe lifelong anemia.</li>
+                                <li>Beta thalassemia major (Cooley’s anemia) often leads to severe anemia symptoms
+                                    noticeable by age 2.</li>
+                                <li>Symptoms of severe anemia include those associated with mild to moderate disease.
+                                    Additional symptoms may include:</li>
+                                <li>Poor appetite.</li>
+                                <li>Pale or yellowish skin (jaundice).</li>
+                                <li>Urine that’s dark or tea-colored.</li>
+                                <li>Irregular bone structure in your face.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="diagnosis">
+        <h1 style="text-align: center; font-weight: bold; font-size: 50px;">Diagnosis and Tests for Thalassemia</h1>
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <!-- CBC -->
+            <div class="col">
+                <div class="card border-primary">
+                    <div class="card-body">
+                        <h5 class="card-title">Complete Blood Count (CBC)</h5>
+                        <p class="card-text">Includes measures of hemoglobin and red blood cell quantity and size.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reticulocyte Count -->
+            <div class="col">
+                <div class="card border-secondary">
+                    <div class="card-body">
+                        <h5 class="card-title">Reticulocyte Count</h5>
+                        <p class="card-text">Measures young red blood cells to assess bone marrow activity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Iron Studies -->
+            <div class="col">
+                <div class="card border-success">
+                    <div class="card-body">
+                        <h5 class="card-title">Iron Studies</h5>
+                        <p class="card-text">Helps differentiate between iron deficiency anemia and thalassemia.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hemoglobin Electrophoresis -->
+            <div class="col">
+                <div class="card border-danger">
+                    <div class="card-body">
+                        <h5 class="card-title">Hemoglobin Electrophoresis</h5>
+                        <p class="card-text">Specifically used to diagnose beta thalassemia by analyzing hemoglobin
+                            types.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Genetic Testing -->
+            <div class="col">
+                <div class="card border-warning">
+                    <div class="card-body">
+                        <h5 class="card-title">Genetic Testing</h5>
+                        <p class="card-text">Used to diagnose alpha thalassemia by identifying specific genetic
+                            mutations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Test -->
+            <div class="col">
+                <div class="card border-info">
+                    <div class="card-body">
+                        <h5 class="card-title">Additional Tests</h5>
+                        <p class="card-text">Other tests may include bone marrow examination and fetal hemoglobin
+                            analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="treatment-section content">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 style="text-align: center; font-weight: bold; font-size: 50px;">Treatment of Thalassemia</h1>
+                <p>Standard treatments for thalassemia major include:</p>
+                <ul>
+                    <li><strong>Blood Transfusion:</strong> Involves receiving injections of red blood cells to restore
+                        normal levels of healthy red blood cells and hemoglobin.</li>
+                    <li><strong>Iron Chelation:</strong> Removal of excess iron from the body to prevent iron overload
+                        caused by frequent blood transfusions.</li>
+                    <li><strong>Folic Acid Supplements:</strong> Helps the body make healthy blood cells.</li>
+                    <li><strong>Bone Marrow Transplant:</strong> Cure for thalassemia; involves injecting bone marrow
+                        stem cells from a compatible donor.</li>
+                    <li><strong>Luspatercept:</strong> Injection to help the body make more red blood cells, approved
+                        for transfusion-dependent beta thalassemia.</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="container text-center">
+                    <div class="row row-cols-2">
+                        <div class="col"><img
+                                src="https://img.freepik.com/free-vector/set-all-blood-type-human-arm-donate-blood_1308-131739.jpg?w=900&t=st=1720082879~exp=1720083479~hmac=49cadb9cc7e8d1fac2c595850ad32e1ddd56bcdd4a1a749ac2195b5bf46d9306"
+                                alt="Blood Transfusion"></div>
+                        <div class="col"><img
+                                src="https://img.freepik.com/free-vector/red-bone-marrow-white-background_1308-82082.jpg?t=st=1720083000~exp=1720086600~hmac=fc853ba5467f608be6d509f9b74decacd5da44937359dd6cea8569f2c29d9a29&w=1060"
+                                alt="Bone Marrow"></div>
+                        <div class="col"><img
+                                src="https://img.freepik.com/free-vector/vitamin-food-infographic_23-2148485173.jpg?t=st=1720083205~exp=1720086805~hmac=40e9510babc303b2c9e7bde294d4c4235788cca274b5e07520c1d69721d12a57&w=740"
+                                alt="Feeling Cold"></div>
+                        <div class="col"><img
+                                src="https://img.freepik.com/free-vector/essential-vitamin-minerals-concept_23-2148486968.jpg?t=st=1720083162~exp=1720086762~hmac=a1172865c7ca54172e90d9b215ff511202152949bde5fb1a0bb9dc79bd7feecd&w=740"
+                                alt="Dizziness"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="doctor-contact">
+        <div class="container">
+            <h1 style="text-align: center; font-weight: bold; font-size: 50px;">Doctors Specializing in Thalassemia</h1>
+
+            <div class="row">
+                <!-- Doctor 1 -->
+                <div class="col">
+                    <div class="doctor-info">
+                        <img src="https://img.freepik.com/free-photo/smiling-doctor-with-strethoscope-isolated-grey_651396-974.jpg?t=st=1720082397~exp=1720085997~hmac=3fab1e7764c095bf1ead759d35563b9dbee8e844986dd02b0fd75d9645fe280e&w=996"
+                            class="doctor-img" alt="Doctor 1">
+                        <div class="doctor-details">
+                            <h5 class="doctor-name">Dr. John Doe</h5>
+                            <p class="doctor-specialization">Pediatric Thalassemia Specialist</p>
+                            <p class="doctor-contact-info"><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+                            <p class="doctor-hospital">XYZ Hospital</p>
+                            <p class="doctor-location">Location: City, Country</p>
+                            <a href="#" class="btn btn-outline-secondary">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="doctor-info">
+                        <img src="https://img.freepik.com/free-photo/smiling-doctor-with-strethoscope-isolated-grey_651396-974.jpg?t=st=1720082397~exp=1720085997~hmac=3fab1e7764c095bf1ead759d35563b9dbee8e844986dd02b0fd75d9645fe280e&w=996"
+                            class="doctor-img" alt="Doctor 1">
+                        <div class="doctor-details">
+                            <h5 class="doctor-name">Dr. John Doe</h5>
+                            <p class="doctor-specialization">Pediatric Thalassemia Specialist</p>
+                            <p class="doctor-contact-info"><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+                            <p class="doctor-hospital">XYZ Hospital</p>
+                            <p class="doctor-location">Location: City, Country</p>
+                            <a href="#" class="btn btn-outline-secondary">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="doctor-info">
+                        <img src="https://img.freepik.com/free-photo/smiling-doctor-with-strethoscope-isolated-grey_651396-974.jpg?t=st=1720082397~exp=1720085997~hmac=3fab1e7764c095bf1ead759d35563b9dbee8e844986dd02b0fd75d9645fe280e&w=996"
+                            class="doctor-img" alt="Doctor 1">
+                        <div class="doctor-details">
+                            <h5 class="doctor-name">Dr. John Doe</h5>
+                            <p class="doctor-specialization">Pediatric Thalassemia Specialist</p>
+                            <p class="doctor-contact-info"><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+                            <p class="doctor-hospital">XYZ Hospital</p>
+                            <p class="doctor-location">Location: City, Country</p>
+                            <a href="#" class="btn btn-outline-secondary">Visit Website</a>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="footer">
+                    <p>&copy; 2024 Thalassemia Awareness. All rights reserved.</p>
+                </footer>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
